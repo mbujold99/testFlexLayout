@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Use box sizing to make sure width does not exceed size when using borders and margins. */
+html {
+    box-sizing: border-box;
+}
+ 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Make the main body take up all browser space. */
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}

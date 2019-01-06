@@ -1,21 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Using grid, which is only in beta. -->
+<!-- <div id="appView"
+  gdAreas="bin pathview | bin status"
+  gdGap="0px"
+  gdRows="80% 20%"
+  gdColumns="20% 80%">
 
+  <div id="deviceBin" gdArea="bin">Device Bin</div>
+  <div id="pathView" gdArea="pathview">Path View</div>
+  <div id="status" gdArea="status" fxFlexFill>Status</div>
+</div> -->
+<!-- Using flex layout -->
+<!-- <div id="appView" fxLayout="row">
+  <div id="deviceBin" fxFlex="20%">
+    Device Bin
+    <div class="draggableEdge" id="rightEdge"
+      (mousedown)="dragged=true" (mouseup)="dragged=false" (mousemove)="mouseMove($event)" (drag)="drag($event)"></div>
+  </div>
+  <div fxLayout="column" fxFlex="80%">
+    <svg id="pathView" fxFlex="80%">
+        <desc>Red rectangle shape</desc>
+        <rect x="10" y="10" width="100" height="100" fill="#c00"  />
+    </svg>
+    <div id="status" fxFlex="20%">Status</div>
+  </div>
+</div> -->
+<!-- Using angular-split -->
+<as-split id="appView" direction="horizontal" gutterSize="6">
+  <as-split-area id="deviceBin" size="20">
+    <ul>
+        <li draggable="true" (dragstart)="startDrag($event)">item 1</li>
+        <li draggable="true" (dragstart)="startDrag($event)">item 2</li>
+        <li draggable="true" (dragstart)="startDrag($event)">item 3</li>
+    </ul>
+  </as-split-area>
+  <as-split-area size="80">
+    <as-split id="statusSplit" direction="vertical" gutterSize="6">
+      <as-split-area id="pathView"size="80">
+        <app-workspace-view></app-workspace-view>
+      </as-split-area>
+      <as-split-area id="status" size="20">Status</as-split-area>
+    </as-split>
+  </as-split-area>
+</as-split>
 <router-outlet></router-outlet>

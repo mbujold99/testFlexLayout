@@ -1,0 +1,9 @@
+svg {
+    width: 100%;
+    height: calc(100% - 6px); /* substract the gutter width */
+}
+
+
+rect:hover {
+    cursor: grab;
+}

@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testFlexLayout';
+  dragged: boolean = false;
+
+  mouseMove(event: MouseEvent) {
+    console.log("mouseMove");
+  }
+  
+  startDrag(event: DragEvent): void {
+    console.log("startDrag");
+    event.dataTransfer.setData("name", event.srcElement.innerHTML);
+  }
 }
